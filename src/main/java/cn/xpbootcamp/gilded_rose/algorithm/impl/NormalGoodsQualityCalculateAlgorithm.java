@@ -12,6 +12,6 @@ public class NormalGoodsQualityCalculateAlgorithm implements GoodsQualityCalcula
     if (sellIn < passedDays) {
       quality -= (passedDays - sellIn) * 2;
     }
-    return quality > 0 ? quality : MIN_QUALITY;
+    return Math.max(quality, MIN_QUALITY);
   }
 }
