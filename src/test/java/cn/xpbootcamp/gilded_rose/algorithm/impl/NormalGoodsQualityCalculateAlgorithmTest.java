@@ -14,25 +14,25 @@ class NormalGoodsQualityCalculateAlgorithmTest {
     Goods normalGoods = new Goods();
     normalGoods.setGoodsType(GoodsType.NORMAL);
     normalGoods.setSellIn(30);
-    normalGoods.setQuality(100);
+    normalGoods.setQuality(50);
 
     GoodsQualityCalculateAlgorithm algorithm = new NormalGoodsQualityCalculateAlgorithm();
 
     int passedDays = 10;
     int actual = algorithm.calculate(normalGoods, passedDays);
-    assertEquals(100, actual);
+    assertEquals(50, actual);
 
     passedDays = 30;
     actual = algorithm.calculate(normalGoods, passedDays);
-    assertEquals(100, actual);
+    assertEquals(50, actual);
 
     passedDays = 31;
     actual = algorithm.calculate(normalGoods, passedDays);
-    assertEquals(98, actual);
+    assertEquals(48, actual);
 
     passedDays = 40;
     actual = algorithm.calculate(normalGoods, passedDays);
-    assertEquals(80, actual);
+    assertEquals(30, actual);
 
     passedDays = 80;
     actual = algorithm.calculate(normalGoods, passedDays);
